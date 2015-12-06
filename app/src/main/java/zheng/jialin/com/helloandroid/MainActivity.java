@@ -19,6 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import zheng.jialin.com.demo.ContentActivity;
+import zheng.jialin.com.until.App;
+
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -42,6 +45,17 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 设置全局变量
+        try
+        {
+            ((App) getApplicationContext()).setShareData("这里是打开页面存入的共享信息");
+        }
+        catch(Exception ex)
+        {
+            Log.e(TAG,ex.toString());
+        }
+
 
         final TextView display = (TextView) findViewById(R.id.hehe);
 
@@ -85,6 +99,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ClockActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button content_Btn = (Button) findViewById(R.id.testContentBtn);
+        content_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ContentActivity.class);
                 startActivity(intent);
             }
         });
