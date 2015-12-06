@@ -28,6 +28,7 @@ public class ContentActivity extends Activity {
         tv.setText(((App) getApplicationContext()).getShareData());
         setContentView(tv);
 
+        ((App) getApplicationContext()).setShareData("进入的页面是"+this);
         imageView = new ImageView(this);
         imageView.setImageResource(R.mipmap.ic_launcher);
 //        setContentView(imageView);
