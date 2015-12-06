@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             if (null != bundle) {
                 Log.d(TAG, "result is " + bundle.getString("result"));
                 Log.d(TAG, "back is" + bundle.getString("back"));
+                Log.d(TAG, "这行代码是二次提交的");
             } else {
                 Log.e(TAG, "this is no result");
             }
