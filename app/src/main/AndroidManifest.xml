@@ -17,6 +17,7 @@
         </activity>
 
         <activity android:name=".DisplayActivity"></activity>
+        <activity android:name=".ClockActivity"></activity>
     </application>
 
 </manifest>

@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.d(TAG, "这里是提示信息");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -78,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
                 intent.putExtra("info", "time is " + new DateTime(DateTimeZone.forID(TIME_ZONE)).toString("yyyy-MM-dd HH:mm:ss"));
                 startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        Button clock_Btn = (Button) findViewById(R.id.clocl_Btn);
+        clock_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ClockActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -17,15 +17,22 @@
 
     <Button
         android:id="@+id/testbtn"
-        android:layout_below="@id/hehe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击展示时间"/>
+        android:layout_below="@id/hehe"
+        android:text="点击展示时间" />
 
     <Button
-        android:layout_below="@id/testbtn"
         android:id="@+id/nextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击启动下一个页面"/>
+        android:layout_below="@id/testbtn"
+        android:text="点击启动下一个页面" />
+
+    <Button
+        android:id="@+id/clocl_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nextBtn"
+        android:text="查看时钟" />
 </RelativeLayout>
