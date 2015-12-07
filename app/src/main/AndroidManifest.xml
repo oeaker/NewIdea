@@ -12,16 +12,25 @@
 
         <!-- 定义Activity -->
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".DisplayActivity"></activity>
         <activity android:name=".ClockActivity"></activity>
         <activity android:name="zheng.jialin.com.demo.ContentActivity"></activity>
+        <activity android:name="zheng.jialin.com.activity.ServiceActivity">
+            <!--set this activity is the beginning-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--service -->
+        <service
+            android:name="zheng.jialin.com.service.MyService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

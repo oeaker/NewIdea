@@ -47,18 +47,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 设置全局变量
-        try
-        {
-            ((App) getApplicationContext()).setShareData("这里是打开页面存入的共享信息");
-        }
-        catch(Exception ex)
-        {
-            Log.e(TAG,ex.toString());
-        }
-
+        ((App) getApplicationContext()).setShareData("这里是打开页面存入的共享信息");
 
         final TextView display = (TextView) findViewById(R.id.hehe);
-
         Button btn = (Button) findViewById(R.id.testbtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
