@@ -18,7 +18,16 @@ public class MyService extends Service {
 
     private boolean serviceRunning = false;
 
-    private String date = "default";
+    private String str = "default";
+
+    /**
+     * 这是参数的值
+     *
+     * @param str
+     */
+    public void setStr(String str) {
+        this.str = str;
+    }
 
     /**
      * Return the communication channel to the service.  May return null if
@@ -43,21 +52,27 @@ public class MyService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return new Binder();
+        return new Mybinder();
+    }
+
+    public class Mybinder extends Binder {
+
+        public void setDate(String string) {
+            str = string;
+        }
     }
 
     @Override
     public void onCreate() {
-        super.onCreate();
         new Thread() {
             @Override
             public void run() {
                 while (serviceRunning) {
-                    System.out.println(date);
+                    System.out.println(str);
                     try {
                         sleep(1000);
-                    } catch (Exception ex) {
-                        Log.e(MainActivity.TAG, ex.toString());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -67,6 +82,7 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         serviceRunning = false;
+        System.out.println("this service is stop...");
         super.onDestroy();
     }
 
@@ -81,7 +97,8 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         serviceRunning = true;
-        date = intent.getStringExtra("data");
+        str = intent.getStringExtra("data");
+        System.out.println("start command is done and data is " + str);
         return super.onStartCommand(intent, flags, startId);
     }
 }

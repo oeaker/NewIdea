@@ -28,6 +28,12 @@
         android:layout_height="wrap_content"
         android:text="Unbind service" />
 
+    <Button
+        android:id="@+id/syncData_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SyncData" />
+
     <EditText
         android:id="@+id/edit_txt"
         android:layout_width="match_parent"
